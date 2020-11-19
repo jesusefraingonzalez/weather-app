@@ -10,11 +10,13 @@
 
 <body>
 
-    <header><h1>Weather Dashboard</h1></header>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
     <div id="sidebar">
         <h2>Search for a City:</h2>
         <input type="text">
-        <button type="button" value="search">Search</button>
+        <button id="search-button" type="button" value="search">Search</button>
         <!-- ul holds list of cities -->
         <ul>
             <li data-city="los angeles">Los Angeles</li>
@@ -25,37 +27,37 @@
 
     <div class="container">
         <div id="main-info-card">
-            <h2>City Name</h2>
+            <h2 id="city-name">City Name</h2>
             <ul>
-                <li>Temperature: </li>
-                <li>Humidity: </li>
-                <li>Wind Speed: </li>
-                <li>UV Index: </li>
+                <li>Temperature: <p id="current-temp"></p></li>
+                <li>Humidity: <p id="current-hum"></p></li>
+                <li>Wind Speed:<p id="current-wind"></p></li>
+                <li>UV Index: <p id="current-uv"></p></li>
             </ul>
         </div>
         <h2>5-Day Forecast</h2>
         <ol id="five-day-forecast">
-            <li class="day-card">
+            <li id="day-1" class="day-card">
                 <h3>Date</h3>
                 <p>Temperature</p>
                 <p>Humidity</p>
             </li>
-            <li class="day-card">
+            <li id="day-2" class="day-card">
                 <h3>Date</h3>
                 <p>Temperature</p>
                 <p>Humidity</p>
             </li>
-            <li class="day-card">
+            <li id="day-3" class="day-card">
                 <h3>Date</h3>
                 <p>Temperature</p>
                 <p>Humidity</p>
             </li>
-            <li class="day-card">
+            <li id="day-4" class="day-card">
                 <h3>Date</h3>
                 <p>Temperature</p>
                 <p>Humidity</p>
             </li>
-            <li class="day-card">
+            <li id="day-5" class="day-card">
                 <h3>Date</h3>
                 <p>Temperature</p>
                 <p>Humidity</p>
@@ -63,6 +65,8 @@
 
         </ol>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 
