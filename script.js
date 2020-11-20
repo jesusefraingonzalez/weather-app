@@ -1,6 +1,6 @@
 var apiKey = "3c68c7cd73a72f5d17105adff05e1f92";
 
-function populate(queryUrl , cityName) {
+function populate(queryUrl, cityName) {
     // make ajax call to  open weather api current weather
     // display the current information in the main card
     $.ajax({ url: queryUrl, method: "GET" }).then(function (response) {
@@ -54,6 +54,13 @@ $("document").ready(function () {
     $("#search-button").click(function (event) {
         var city = $("input").val();
         var query = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
-        populate(query , city);
+        populate(query, city);
+    });
+
+    $(".city-element").click(function (event) {
+        var city = $(this).attr("data-city");
+        var query = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
+        populate(query, city);
     });
 });
+
