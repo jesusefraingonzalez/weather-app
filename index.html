@@ -19,9 +19,9 @@
         <button id="search-button" type="button" value="search">Search</button>
         <!-- ul holds list of cities -->
         <ul>
-            <li data-city="los angeles">Los Angeles</li>
-            <li>Austin</li>
-            <li>Las Vegas</li>
+            <li data-city="los+angeles" class="city-element"><button>Los Angeles</button></li>
+            <li data-city="austin" class="city-element"><button>Austin</button></li>
+            <li data-city="las+vegas" class="city-element"><button>Las Vegas</button></li>
         </ul>
     </div>
 
@@ -29,10 +29,14 @@
         <div id="main-info-card">
             <h2 id="city-name">City Name</h2>
             <ul>
-                <li>Temperature: <p id="current-temp"></p></li>
-                <li>Humidity: <p id="current-hum"></p></li>
-                <li>Wind Speed:<p id="current-wind"></p></li>
-                <li>UV Index: <p id="current-uv"></p></li>
+                <li>Temperature: <p id="current-temp"></p>
+                </li>
+                <li>Humidity: <p id="current-hum"></p>
+                </li>
+                <li>Wind Speed:<p id="current-wind"></p>
+                </li>
+                <li>UV Index: <p id="current-uv"></p>
+                </li>
             </ul>
         </div>
         <h2>5-Day Forecast:</h2>
