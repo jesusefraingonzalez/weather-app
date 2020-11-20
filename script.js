@@ -14,6 +14,7 @@ $("document").ready(function () {
             var lat = response.city.coord.lat;
             var lon = response.city.coord.lon;
             // add temp, humidity, wind info to dom
+            $("#city-name").text(response.city.name);
             $("#current-temp").text(response.list[0].main.temp);
             $("#current-hum").text(response.list[0].main.humidity);
             $("#current-wind").text(response.list[0].wind.speed);
@@ -26,6 +27,26 @@ $("document").ready(function () {
             });
 
             // display 5-day forcast
+            var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey;
+            $.ajax({ url: forecastUrl, method: "GET" }).then(function (response) {
+                console.log(response)
+                
+                for (var i = 0; i < 20; i+=3) {
+                    var card = $("<li>");
+                    card.attr("class", "day-card");
+                    var dateEl = $("<h3>");
+                    dateEl.html(response.list[i].dt_txt);
+                    card.append(dateEl);
+                    var humidityEl = $("<p>");
+                    humidityEl.html("humidity:" + response.list[i].main.humidity);
+                    var tempEl = $("<p>");
+                    tempEl.html("temperature: " + response.list[i].main.temp + "degF");
+
+                    card.append(tempEl);
+                    card.append(humidityEl);
+                    $("#five-day-forecast").append(card);
+                }
+            });
         });
     });
 
