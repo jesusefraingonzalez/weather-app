@@ -50,13 +50,14 @@ function populate(queryUrl, cityName) {
 
 
 $("document").ready(function () {
-    // get a city input for the desired city
+    // get a city input for city entered in input box
     $("#search-button").click(function (event) {
         var city = $("input").val();
         var query = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
         populate(query, city);
     });
 
+    // populate info for city clicked
     $(".city-element").click(function (event) {
         var city = $(this).attr("data-city");
         var query = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
