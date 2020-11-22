@@ -1,11 +1,71 @@
-.hide{
+header {
+    background-color: #484848;
+    /* background-color: lightslategray; */
+    text-align: center;
+    min-height: 60px;
+    color: whitesmoke;
+}
+
+ol {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 10;
+}
+
+button {
+    align-self: left;
+}
+
+.clearfix::after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.hide {
     display: none;
 }
 
-ol{
-    list-style-type: none;
+.day-card {
+    float: left;
+    background-color: dodgerblue;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 2px;
+    border-radius: 20px;
+    padding: 1em;
 }
 
-ul{
-    list-style-type: none;
+.container {
+    display: flex;
+    position: relative;
+}
+
+#sidebar {
+    position: fixed;
+    background-color: lightgrey;
+    height: 100%;
+    min-width: 25%;
+}
+
+#main-content {
+    width: 100%;
+    margin-left: 30%;
+    margin-top: 10px;
+}
+
+#main-info-card {
+    border: 1px;
+    border-color: dodgerblue;
+    border-style: ridge;
+    border-radius: 20px;
+}
+
+#search-button {
+    background-color: dodgerblue;
 }
