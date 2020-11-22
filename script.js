@@ -9,7 +9,7 @@ function populate(queryUrl, cityName) {
         var lat = response.city.coord.lat;
         var lon = response.city.coord.lon;
         // add temp, humidity, wind info to dom
-        $("#city-name").text(response.city.name);
+        $("#city-name").text(response.city.name + " (" + dayjs().format("MM/DD/YYYY)" ));
         $("#current-temp").text("Temperature: " + response.list[0].main.temp);
         $("#current-hum").text("Humidity: " + response.list[0].main.humidity);
         $("#current-wind").text("Wind: " + response.list[0].wind.speed);
@@ -37,7 +37,7 @@ function populate(queryUrl, cityName) {
                     console.log(cardEl);
                     cardEl.children(".temp").html("Temperature: "+response.list[i].main.temp + " ºF");
                     cardEl.children(".humidity").html("Humidity: "+ response.list[i].main.humidity + "%");
-                    cardEl.children("h3").html(date);
+                    cardEl.children("h3").html(dayjs(date).format("MM/DD/YYYY"));
                     counter++;
                     // var card = $("<li>");
                     // card.attr("class", "day-card");
