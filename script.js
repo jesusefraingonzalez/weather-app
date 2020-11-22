@@ -10,38 +10,47 @@ function populate(queryUrl, cityName) {
         var lon = response.city.coord.lon;
         // add temp, humidity, wind info to dom
         $("#city-name").text(response.city.name);
-        $("#current-temp").text(response.list[0].main.temp);
-        $("#current-hum").text(response.list[0].main.humidity);
-        $("#current-wind").text(response.list[0].wind.speed);
+        $("#current-temp").text("Temperature: " + response.list[0].main.temp);
+        $("#current-hum").text("Humidity: " + response.list[0].main.humidity);
+        $("#current-wind").text("Wind: " + response.list[0].wind.speed);
         // ajax for uv index data
         var uvUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
         $.ajax({ url: uvUrl, method: "GET" }).then(function (response) {
             // console.log(response);
             // add uv info to dom
-            $("#current-uv").text(response.value);
+            $("#current-uv").text("UV Index:" + response.value);
         });
 
         // display 5-day forcast
         var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey;
         $.ajax({ url: forecastUrl, method: "GET" }).then(function (response) {
             console.log(response)
-
+            // $("#five-day-forecast").remove($("<li>"));
             // create and fill info cards for the five day forecast
+            var counter = 0;
             for (var i = 0; i < response.list.length; i++) {
                 var date = response.list[i].dt_txt;
                 if (date.includes("12:00")) {
-                    var card = $("<li>");
-                    card.attr("class", "day-card");
-                    var dateEl = $("<h3>");
-                    dateEl.html(date);
-                    card.append(dateEl);
-                    var humidityEl = $("<p>");
-                    humidityEl.html("humidity:  " + response.list[i].main.humidity);
-                    var tempEl = $("<p>");
-                    tempEl.html("temperature: " + response.list[i].main.temp + "degF");
-                    card.append(tempEl);
-                    card.append(humidityEl);
-                    $("#five-day-forecast").append(card);
+                    var cardId = "#day-" + counter;
+                    console.log(cardId);
+                    var cardEl = $(cardId);
+                    console.log(cardEl);
+                    cardEl.children(".temp").html("Temperature: "+response.list[i].main.temp + " ºF");
+                    cardEl.children(".humidity").html("Humidity: "+ response.list[i].main.humidity + "%");
+                    cardEl.children("h3").html(date);
+                    counter++;
+                    // var card = $("<li>");
+                    // card.attr("class", "day-card");
+                    // var dateEl = $("<h3>");
+                    // dateEl.html(date);
+                    // card.append(dateEl);
+                    // var humidityEl = $("<p>");
+                    // humidityEl.html("humidity:  " + response.list[i].main.humidity);
+                    // var tempEl = $("<p>");
+                    // tempEl.html("temperature: " + response.list[i].main.temp + "degF");
+                    // card.append(tempEl);
+                    // card.append(humidityEl);
+                    // $("#five-day-forecast").append(card);
                 }
             }
         });

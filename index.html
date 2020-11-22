@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,43 +16,74 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-    <div id="sidebar">
-        <h2>Search for a City:</h2>
-        <input type="text">
-        <button id="search-button" type="button" value="search">Search</button>
-        <!-- ul holds list of cities -->
-        <ul>
-            <li data-city="los+angeles" class="city-element"><button>Los Angeles</button></li>
-            <li data-city="austin" class="city-element"><button>Austin</button></li>
-            <li data-city="las+vegas" class="city-element"><button>Las Vegas</button></li>
-        </ul>
-    </div>
-
     <div class="container">
-        <div id="main-info-card">
-            <h2 id="city-name">City Name</h2>
+        <div id="sidebar" class="">
+            <h2>Search for a City:</h2>
+            <input type="text">
+            <button id="search-button" type="button" value="search">Search</button>
+            <!-- ul holds list of cities -->
             <ul>
-                <li>Temperature: <p id="current-temp"></p>
-                </li>
-                <li>Humidity: <p id="current-hum"></p>
-                </li>
-                <li>Wind Speed:<p id="current-wind"></p>
-                </li>
-                <li>UV Index: <p id="current-uv"></p>
-                </li>
+                <li data-city="los+angeles" class="city-element"><button>Los Angeles</button></li>
+                <li data-city="austin" class="city-element"><button>Austin</button></li>
+                <li data-city="las+vegas" class="city-element"><button>Las Vegas</button></li>
             </ul>
         </div>
-        <h2>5-Day Forecast:</h2>
-        <ol id="five-day-forecast">
-            <li id="day-template" class="day-card hide">
-                <h3>Date</h3>
-                <p>Temperature</p>
-                <p>Humidity</p>
 
-        </ol>
+        <div id="main-content">
+            <div id="main-info-card">
+                <h2 id="city-name">City Name</h2>
+                <ul>
+                    <li>
+                        <p id="current-temp"></p>
+                    </li>
+                    <li>
+                        <p id="current-hum"></p>
+                    </li>
+                    <li>
+                        <p id="current-wind"></p>
+                    </li>
+                    <li>
+                        <p id="current-uv"></p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="forecast" class="clearfix">
+                <h2>5-Day Forecast:</h2>
+                <ol id="five-day-forecast">
+                    <li id="day-0" class="day-card">
+                        <h3>Date</h3>
+                        <p class="temp">Temperature</p>
+                        <p class="humidity">Humidity</p>
+                    </li>
+                    <li id="day-1" class="day-card">
+                        <h3>Date</h3>
+                        <p class="temp">Temperature</p>
+                        <p class="humidity">Humidity</p>
+                    </li>
+                    <li id="day-2" class="day-card">
+                        <h3>Date</h3>
+                        <p class="temp">Temperature</p>
+                        <p class="humidity">Humidity</p>
+                    </li>
+                    <li id="day-3" class="day-card">
+                        <h3>Date</h3>
+                        <p class="temp">Temperature</p>
+                        <p class="humidity">Humidity</p>
+                    </li>
+                    <li id="day-4" class="day-card">
+                        <h3>Date</h3>
+                        <p class="temp">Temperature</p>
+                        <p class="humidity">Humidity</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.6/dayjs.min.js"
+        integrity="sha512-C2m821NxMpJ4Df47O4P/17VPqt0yiK10UmGl59/e5ynRRYiCSBvy0KHJjhp2XIjUJreuR+y3SIhVyiVilhCmcQ=="
+        crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 
