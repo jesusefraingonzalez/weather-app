@@ -21,6 +21,11 @@ button {
     align-self: left;
 }
 
+.city-element button{
+    width: 75%;
+    height: 30px;
+}
+
 .clearfix::after {
     content: " ";
     display: table;
@@ -34,11 +39,12 @@ button {
 .day-card {
     float: left;
     background-color: dodgerblue;
-    max-width: 200px;
-    max-height: 200px;
+    width: 150px;
+    height: 200px;
     margin: 2px;
     border-radius: 20px;
     padding: 1em;
+    color: beige;
 }
 
 .container {
@@ -50,11 +56,11 @@ button {
     position: fixed;
     background-color: lightgrey;
     height: 100%;
-    min-width: 25%;
+    min-width: 20%;
 }
 
 #main-content {
-    width: 100%;
+    position: relative;
     margin-left: 30%;
     margin-top: 10px;
 }
@@ -64,8 +70,17 @@ button {
     border-color: dodgerblue;
     border-style: ridge;
     border-radius: 20px;
+    padding: 20px;
+}
+
+.main-content h2, .main-content p {
+    margin: 20px;
 }
 
 #search-button {
     background-color: dodgerblue;
+}
+
+#search-element{
+    margin: auto;
 }
