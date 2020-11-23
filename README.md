@@ -8,7 +8,8 @@ An interactive weather app that populates the current weather and the five day f
 2. Dress appropriately!
 
 ## Design
-
+* html templates populate with ajax queries to open weather API
+* dayJS date library for date formatting
 
 ## Files and Directory
 * weather-app
